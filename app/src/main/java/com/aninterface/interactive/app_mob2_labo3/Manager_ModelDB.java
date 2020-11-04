@@ -29,14 +29,14 @@ public class Manager_ModelDB {
     public void InsertAstreCeleste()
     {
 
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Terre','20','BLUE','true','collection');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Saturne','33','BLUE','true','formule1');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Jupiter','42','GREEN','true','moteur');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Lune','27','RED','true','porche');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Mars','36','RED','true','rally');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Uranus','30','GREEN','true','suv');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Mercure','39','YELLOW','true','tesla');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Venus','23','YELLOW','true','voiture_bb');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Terre','20','BLUE','true','Terre');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Saturne','33','BLUE','true','Saturne');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Jupiter','42','GREEN','true','Jupiter');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Lune','27','RED','true','Lune');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Mars','36','RED','true','Mars');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Uranus','30','GREEN','true','Uranus');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Mercure','39','YELLOW','true','Mercure');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Venus','23','YELLOW','true','Venus');");
     }
 
     public ArrayList<AstreCeleste> SelectAllAstreCeleste()

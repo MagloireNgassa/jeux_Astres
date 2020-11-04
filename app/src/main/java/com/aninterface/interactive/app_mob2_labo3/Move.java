@@ -119,7 +119,6 @@ public class Move extends View implements SensorEventListener {
         }
 
     }
-
     private void moveImage( float x, float y ) {
         this.bally += (int) x;
         this.bally += (int) y;
@@ -132,14 +131,11 @@ public class Move extends View implements SensorEventListener {
         float vectorLength;
 
 
-        //gX.setText("X: " + String.valueOf(event.values[0]));
-        //gY.setText("Y: " + String.valueOf(event.values[1]));
-       // gZ.setText("Z: " + String.valueOf(event.values[2]));
 
        vectorLength = (float)Math.sqrt(Math.pow((double)(event.values[0]),2)+Math.pow((double)(event.values[1]),2)
                 + Math.pow((double)(event.values[2]),2));
 
-        //ballX=ballX + event.values[0];//* (-1*vectorLength);
+        //ballX=(int)ballX + event.values[0];//* (-1*vectorLength);
         //bally=bally + event.values[1];//* vectorLength;
 
             float x = event.values[0]* (-1*vectorLength);

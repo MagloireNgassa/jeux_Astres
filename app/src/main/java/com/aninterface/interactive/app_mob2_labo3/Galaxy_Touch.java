@@ -141,13 +141,13 @@ public class Galaxy_Touch extends View {
                                 couleur = "VERTE";
                             }
                             ImageView image = new ImageView(mcontext);
-                            if(ls.get(i).getNomAstre().equals("Terre")){image.setImageResource(R.drawable.terre);}
-                            else if(ls.get(i).getNomAstre().equals("Jupiter")){image.setImageResource(R.drawable.jupiter);}
-                            else if(ls.get(i).getNomAstre().equals("Mercure")){image.setImageResource(R.drawable.mercure);}
-                            else if(ls.get(i).getNomAstre().equals("Venus")){image.setImageResource(R.drawable.venus);}
-                            else if(ls.get(i).getNomAstre().equals("Uranus")){image.setImageResource(R.drawable.uranus);}
-                            else if(ls.get(i).getNomAstre().equals("Lune")){image.setImageResource(R.drawable.lune);}
-                            else if(ls.get(i).getNomAstre().equals("Saturne")){image.setImageResource(R.drawable.saturne);}
+                            if(ls.get(i).getNomImageAstre().equals("Terre")){image.setImageResource(R.drawable.terre);}
+                            else if(ls.get(i).getNomImageAstre().equals("Jupiter")){image.setImageResource(R.drawable.jupiter);}
+                            else if(ls.get(i).getNomImageAstre().equals("Mercure")){image.setImageResource(R.drawable.mercure);}
+                            else if(ls.get(i).getNomImageAstre().equals("Venus")){image.setImageResource(R.drawable.venus);}
+                            else if(ls.get(i).getNomImageAstre().equals("Uranus")){image.setImageResource(R.drawable.uranus);}
+                            else if(ls.get(i).getNomImageAstre().equals("Lune")){image.setImageResource(R.drawable.lune);}
+                            else if(ls.get(i).getNomImageAstre().equals("Saturne")){image.setImageResource(R.drawable.saturne);}
                             else {image.setImageResource(R.drawable.mars);}
 
 
