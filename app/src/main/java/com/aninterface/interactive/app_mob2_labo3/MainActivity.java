@@ -11,13 +11,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        StartView startView = new StartView(this);
+        //startScreen.setKeepScreenOn(true);
+        setContentView(startView);
 
-        this.btn = (Button)findViewById(R.id.btn1);
+        /*this.btn = (Button)findViewById(R.id.btn1);
 
         this.btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
 
     }
 }

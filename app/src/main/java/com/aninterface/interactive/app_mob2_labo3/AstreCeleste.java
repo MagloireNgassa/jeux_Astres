@@ -1,24 +1,38 @@
 package com.aninterface.interactive.app_mob2_labo3;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+
+import java.util.Random;
 
 public class AstreCeleste {
+
+    private Paint crayon;
+    private Random alea;
+    private int posX;
+    private int posY;
     private String NomAstre;
     private int TailleAstre;
-    private Color CouleurAstre;
+    private int CouleurAstre;
     private Boolean StatusAstre;
     private String NomImageAstre;
 
-    public AstreCeleste(){
+    private static final int[] palette = {Color.BLUE,Color.GREEN,Color.RED,Color.YELLOW};
 
-    }
 
-    public AstreCeleste(String nomAstre, int tailleAstre, Color couleurAstre, Boolean statusAstre, String nomImageAstre) {
-        NomAstre = nomAstre;
-        TailleAstre = tailleAstre;
-        CouleurAstre = couleurAstre;
-        StatusAstre = statusAstre;
-        NomImageAstre = nomImageAstre;
+    public AstreCeleste() {
+
+        alea = new Random();
+        posX = alea.nextInt(400);
+        posY = alea.nextInt(400);
+
+         crayon = new Paint();
+        crayon.setAntiAlias(true);
+        crayon.setColor(palette[CouleurAstre]);
+
     }
 
     public String getNomAstre() {
@@ -37,12 +51,14 @@ public class AstreCeleste {
         TailleAstre = tailleAstre;
     }
 
-    public Color getCouleurAstre() {
+    public int getCouleurAstre() {
         return CouleurAstre;
+
     }
 
-    public void setCouleurAstre(Color couleurAstre) {
+    public void setCouleurAstre(int couleurAstre) {
         CouleurAstre = couleurAstre;
+        crayon.setColor(palette[CouleurAstre]);
     }
 
     public Boolean getStatusAstre() {
@@ -50,7 +66,13 @@ public class AstreCeleste {
     }
 
     public void setStatusAstre(Boolean statusAstre) {
-        StatusAstre = statusAstre;
+
+        this.StatusAstre = statusAstre;
+
+        if (!this.StatusAstre)
+        {
+            crayon.setColor(Color.TRANSPARENT);
+        }
     }
 
     public String getNomImageAstre() {
@@ -59,5 +81,31 @@ public class AstreCeleste {
 
     public void setNomImageAstre(String nomImageAstre) {
         NomImageAstre = nomImageAstre;
+    }
+
+    //getter des position pourm recuperer la position des objet
+    public int getPosX()
+    {
+
+        return this.posX;
+    }
+
+    public int getPosY()
+    {
+        return
+                this.posY;
+    }
+
+    //methode pour desiner les objets
+   protected void onDrawBitmap(Canvas canvas, Bitmap bitmap) {
+
+
+       canvas.drawBitmap( bitmap, posX, posY, null);
+   }
+
+    protected void onDraw(Canvas canvas) {
+
+
+        canvas.drawCircle(posX, posY, TailleAstre, crayon);
     }
 }

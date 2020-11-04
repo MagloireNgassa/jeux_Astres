@@ -29,20 +29,20 @@ public class Manager_ModelDB {
     public void InsertAstreCeleste()
     {
 
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('pierre','400','BLUE','true','collection.jpg');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('jean','800','BLUE','true','formule.jpg');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('paul','1100','RED','true','moteur.jpg');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('yoan','600','RED','true','porche.jpg');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('arsene','900','GREEN','true','rally');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('baruch','700','GREEN','true','suv.jpg');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('claud','1000','YELLOW','true','tesla.jpg');");
-        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('franck','500','YELLOW','true','voiture_bb.jpg');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Terre','20','BLUE','true','collection');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Saturne','33','BLUE','true','formule1');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Jupiter','42','GREEN','true','moteur');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Lune','27','RED','true','porche');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Mars','36','RED','true','rally');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Uranus','30','GREEN','true','suv');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Mercure','39','YELLOW','true','tesla');");
+        this.db.execSQL("INSERT INTO AstreCeleste(NomAstre,TailleAstre,CouleurAstre,StatusAstre,NomImageAstre) values('Venus','23','YELLOW','true','voiture_bb');");
     }
 
     public ArrayList<AstreCeleste> SelectAllAstreCeleste()
     {
 
-        ArrayList<AstreCeleste> listOfStudents = new ArrayList<AstreCeleste>();
+        ArrayList<AstreCeleste> listOfAstres = new ArrayList<AstreCeleste>();
 
         Cursor cursor = this.db.rawQuery("select * from AstreCeleste",null);
 
@@ -51,30 +51,35 @@ public class Manager_ModelDB {
         if((cursor != null) && cursor.moveToFirst())
         {
             String a,c,d,e;
-            int b; Boolean f = true;
+            int b; Boolean f = false;
 
             do{
 
                 a = cursor.getString(1);
                 b = cursor.getInt(2);
                 c = cursor.getString(3);
-                d = cursor.getString(4); if(d!="true"){f=false;}
+                d = cursor.getString(4); if(d.equals("true")){f=true;}
                 e = cursor.getString(5);
+
                 AstreCeleste astre = new AstreCeleste();
+
                 astre.setNomAstre(a);
-                astre.setTailleAstre(b);
-                if (c=="BLUE"){astre.setCouleurAstre(Color.valueOf(0xff0000ff));}
-                else if (c=="YELLOW"){astre.setCouleurAstre(Color.valueOf(0xffffff00));}
-                else if (c=="RED"){astre.setCouleurAstre(Color.valueOf(0xffff0000));}
-                else {astre.setCouleurAstre(Color.valueOf(0xff00ff00));}
+                astre.setTailleAstre(b);//parametrer l'attirbut coulleur astre a recevoir des int
+
+                if (c.equals("BLUE")){astre.setCouleurAstre(0);}//(0xff0000ff)
+                else if (c.equals("YELLOW")){astre.setCouleurAstre(3);}//(0xffffff00)
+                else if (c.equals("RED")){astre.setCouleurAstre(2);} //(0xffff0000)
+                else {astre.setCouleurAstre(1);} //(0xff00ff00)
 
                 astre.setStatusAstre(f);
                 astre.setNomImageAstre(e);
-                listOfStudents.add(astre);
+
+                listOfAstres.add(astre);
+
             }while(cursor.moveToNext());
         }
 
-        return listOfStudents;
+        return listOfAstres;
     }
     public void effacerAstreCeleste()
     {
